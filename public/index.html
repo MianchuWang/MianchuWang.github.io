@@ -159,11 +159,13 @@
 
                 
                 <div id="consoleForm">
-                    <div
-                            id="terminalInput"
-                            class="placeholder"
-                            contenteditable="true"
-                            data-placeholder="type 'help' to show available commands"
+                    <div autocorrect="off"
+                         autocapitalize="none"
+                         spellcheck="false"
+                        id="terminalInput"
+                        class="placeholder"
+                        contenteditable="true"
+                        data-placeholder="type 'help' to show available commands"
                     ></div>
                 </div>
             </div>
@@ -458,6 +460,7 @@
         });
 
         terminalDiv.addEventListener('keydown', (e) => {
+            removePlaceholderIfNeeded()
             
             
             setTimeout(() => {

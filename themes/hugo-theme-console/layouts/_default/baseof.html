@@ -164,11 +164,13 @@
 
                 <!-- Our single contenteditable field -->
                 <div id="consoleForm">
-                    <div
-                            id="terminalInput"
-                            class="placeholder"
-                            contenteditable="true"
-                            data-placeholder="type 'help' to show available commands"
+                    <div autocorrect="off"
+                         autocapitalize="none"
+                         spellcheck="false"
+                        id="terminalInput"
+                        class="placeholder"
+                        contenteditable="true"
+                        data-placeholder="type 'help' to show available commands"
                     ></div>
                 </div>
             </div>
@@ -451,6 +453,7 @@
         });
 
         terminalDiv.addEventListener('keydown', (e) => {
+            removePlaceholderIfNeeded()
             // We handle leftover logic in a setTimeout so we can read the new content
             // after the default key event is applied (except for Enter/Tab which we override).
             setTimeout(() => {

@@ -25,6 +25,11 @@
 <meta name="twitter:description" content=""/>
 
 <style>
+
+         
+        @media only screen and (max-device-width: 480px) {
+            td#main_box { -webkit-text-size-adjust:100% }
+        }
         body{
             margin: 0 auto;
             font-size: 14px;
@@ -76,6 +81,9 @@
             color: #aaa;
         }
 
+        .terminal-prompt{
+            pointer-events: none;
+        }
          
         .line {
             margin-left: 12rem;
@@ -128,43 +136,6 @@
             font-style: italic;
             margin-left: 12rem;
             margin-bottom: 1.0em;
-        }
-
-         
-         
-        @media (max-width: 768px) {
-            body {
-                max-width: 100%;
-                margin: 0 1rem;  
-                font-size: 16px;  
-            }
-
-             
-            .line,
-            .edu-grid-line,
-            .exp-grid-line,
-            .exp-description,
-            .aboutme-grid-line,
-            .help-grid-line,
-            .pub-title,
-            .pub-authors,
-            .pub-venue {
-                margin-left: 0 !important;
-            }
-
-             
-            .edu-grid-line,
-            .exp-grid-line,
-            .aboutme-grid-line,
-            .help-grid-line {
-                grid-template-columns: 1fr;
-            }
-
-             
-            #terminalInput {
-                min-width: 0;
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -281,12 +252,14 @@
         
         function buildAutocomplete() {
             
-            if (terminalDiv.classList.contains('placeholder')) return;
+            
 
             const typed = getPureTyped(); 
-            if (typed === "") {
+
+            
+            if (!typed.trim()) {
                 
-                terminalDiv.textContent = "";
+                terminalDiv.textContent = typed;  
                 placeCaretAtEnd(terminalDiv);
                 return;
             }
@@ -311,6 +284,7 @@
             terminalDiv.textContent = typed;
             placeCaretAtEnd(terminalDiv);
         }
+
 
         function acceptLeftover() {
             const leftoverSpan = terminalDiv.querySelector('.leftover');
@@ -368,7 +342,7 @@
                     </div>
                     <div class="aboutme-grid-line">
                       <div>Position:</div>
-                      <div>PhD student & Research Asssistant</div>
+                      <div>PhD Student & Research Asssistant</div>
                     </div>
                     <div class="aboutme-grid-line">
                       <div>Research interests:</div>

@@ -23,6 +23,11 @@
     {{- partial "header.html" . -}}
 
     <style>
+
+        /* Mobile browsers only */
+        @media only screen and (max-device-width: 480px) {
+            td#main_box { -webkit-text-size-adjust:100% }
+        }
         body{
             margin: 0 auto;
             font-size: 14px;
@@ -77,6 +82,9 @@
             color: #aaa;
         }
 
+        .terminal-prompt{
+            pointer-events: none;
+        }
         /* 4) Echoed lines appear at top (reverse order).
            Use relative spacing so it’s simpler to override with media queries.
         */
@@ -131,43 +139,6 @@
             font-style: italic;
             margin-left: 12rem;
             margin-bottom: 1.0em;
-        }
-
-        /* ----- MOBILE FRIENDLINESS ----- */
-        /* Adjust the breakpoint as needed */
-        @media (max-width: 768px) {
-            body {
-                max-width: 100%;
-                margin: 0 1rem; /* small side margins on mobile */
-                font-size: 16px; /* slightly larger on mobile */
-            }
-
-            /* Remove large left margin for lines on mobile */
-            .line,
-            .edu-grid-line,
-            .exp-grid-line,
-            .exp-description,
-            .aboutme-grid-line,
-            .help-grid-line,
-            .pub-title,
-            .pub-authors,
-            .pub-venue {
-                margin-left: 0 !important;
-            }
-
-            /* Stack columns for smaller screens (one column, or adjust as needed) */
-            .edu-grid-line,
-            .exp-grid-line,
-            .aboutme-grid-line,
-            .help-grid-line {
-                grid-template-columns: 1fr;
-            }
-
-            /* Adjust minimum width for the input so it doesn't force horizontal scrolling */
-            #terminalInput {
-                min-width: 0;
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -262,15 +233,17 @@
             // Skip if in placeholder mode
             if (terminalDiv.classList.contains('placeholder')) return;
 
-            const typed = getPureTyped(); // no trim
-            if (typed === "") {
-                // user cleared => remove leftover
-                terminalDiv.textContent = "";
+            const typed = getPureTyped(); // get the raw text (incl. spaces)
+
+            // ---- NEW CHECK: If only whitespace, don't try leftover logic at all ----
+            if (!typed.trim()) {
+                // typed is all spaces (or empty)
+                terminalDiv.textContent = typed;  // Keep whatever spaces user typed
                 placeCaretAtEnd(terminalDiv);
                 return;
             }
 
-            // See if there's exactly 1 known command that starts with typed
+            // 1) normal leftover logic below...
             const partial = typed.toLowerCase();
             const matches = commands.filter(cmd => cmd.toLowerCase().startsWith(partial));
 
@@ -290,6 +263,7 @@
             terminalDiv.textContent = typed;
             placeCaretAtEnd(terminalDiv);
         }
+
 
         function acceptLeftover() {
             const leftoverSpan = terminalDiv.querySelector('.leftover');
@@ -347,7 +321,7 @@
                     </div>
                     <div class="aboutme-grid-line">
                       <div>Position:</div>
-                      <div>PhD student & Research Asssistant</div>
+                      <div>PhD Student & Research Asssistant</div>
                     </div>
                     <div class="aboutme-grid-line">
                       <div>Research interests:</div>

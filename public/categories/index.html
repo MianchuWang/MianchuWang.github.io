@@ -12,24 +12,9 @@
     <link rel="stylesheet" href="http://localhost:1313/hugo-theme-console/css/terminal-0.7.4.min.css">
     <link rel="stylesheet" href="http://localhost:1313/hugo-theme-console/css/animate-4.1.1.min.css">
     <link rel="stylesheet" href="http://localhost:1313/hugo-theme-console/css/console.css">
+    
 
-       
-    <link href="http://localhost:1313/categories/index.xml" rel="alternate" type="application/rss+xml" title="Mianchu Wang" />
-    <meta property="og:title" content="Categories" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/categories/" />
-
-
-<meta name="twitter:title" content="Categories"/>
-<meta name="twitter:description" content=""/>
-
-<style>
-
-         
-        @media only screen and (max-device-width: 480px) {
-            td#main_box { -webkit-text-size-adjust:100% }
-        }
+    <style>
         body{
             margin: 0 auto;
             font-size: 14px;
@@ -164,11 +149,13 @@
 
                 
                 <div id="consoleForm">
-                    <div
-                            id="terminalInput"
-                            class="placeholder"
-                            contenteditable="true"
-                            data-placeholder="type 'help' to show available commands"
+                    <div autocorrect="off"
+                         autocapitalize="none"
+                         spellcheck="false"
+                        id="terminalInput"
+                        class="placeholder"
+                        contenteditable="true"
+                        data-placeholder="type 'help' to show available commands"
                     ></div>
                 </div>
             </div>
@@ -252,7 +239,7 @@
         
         function buildAutocomplete() {
             
-            
+            if (terminalDiv.classList.contains('placeholder')) return;
 
             const typed = getPureTyped(); 
 
@@ -440,7 +427,7 @@
                     `;
                     } else {
                         outputHtml += `
-                        <div class="echo">[${escapeHTML(timestamp)}] <b>cmd</b> </div>
+                        <div class="echo">[${escapeHTML(timestamp)}] <b>${cmd}</b> </div>
                         <div class="line">Command not found: ${escapeHTML(typed)}</div>
                     `;
                     }
@@ -472,6 +459,7 @@
         });
 
         terminalDiv.addEventListener('keydown', (e) => {
+            removePlaceholderIfNeeded()
             
             
             setTimeout(() => {

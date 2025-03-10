@@ -13,30 +13,14 @@
     <link rel="stylesheet" href="http://localhost:1313/hugo-theme-console/css/animate-4.1.1.min.css">
     <link rel="stylesheet" href="http://localhost:1313/hugo-theme-console/css/console.css">
 
-       
-    <meta property="og:title" content="404 Page not found" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/404.html" />
 
-
-<meta name="twitter:title" content="404 Page not found"/>
-<meta name="twitter:description" content=""/>
-
-<style>
-
-         
-        @media only screen and (max-device-width: 480px) {
-            td#main_box { -webkit-text-size-adjust:100% }
-        }
+    <style>
         body{
             margin: 0 auto;
             font-size: 14px;
             max-width: 800px;  
             font-family: monospace;
         }
-
-         
         body.terminal {
             background-color: #fff !important;
             color: #000 !important;
@@ -50,14 +34,10 @@
             color: #000 !important;
             text-decoration: none;
         }
-
-         
         #consoleForm {
             display: inline-block;
             margin-left: 8px;
         }
-
-         
         #terminalInput {
             display: inline-block;
             min-width: 300px;  
@@ -68,38 +48,30 @@
             color: #000;
             caret-color: #000;  
         }
-
-         
         #terminalInput.placeholder {
             color: #aaa;
             caret-color: transparent;
         }
-
          
         .leftover {
             color: #aaa;
         }
-
         .terminal-prompt{
             pointer-events: none;
         }
-         
         .line {
             margin-left: 12rem;
             margin-bottom: 0.2em;
         }
-
         .echo {
             margin-top: 1.0em;
             margin-bottom: 1.0em;
         }
-        .heading {
-            font-weight: bold;
-        }
         .edu-grid-line,
         .exp-grid-line,
         .aboutme-grid-line,
-        .help-grid-line {
+        .help-grid-line,
+        .talk-grid-line{
             display: grid;
             gap: 1rem;  
             margin-bottom: 0.2em;
@@ -121,6 +93,9 @@
         }
         .help-grid-line {
             grid-template-columns: 150px 400px 1fr;
+        }
+        .talk-grid-line {
+            grid-template-columns: 450px 100px 1fr;
         }
         .pub-title {
             font-weight: bold;
@@ -145,28 +120,17 @@
         <header class="terminal-logo">
             <div class="logo terminal-prompt">
                 
-                
-                
-                mianchu:~#
-
-                
-                
-                
-                
-                <a href='http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html'>404.html</a>/
-                
-                
-                
+                <span contenteditable="false">mianchu:~$</span>
 
                 
                 <div id="consoleForm">
                     <div autocorrect="off"
                          autocapitalize="none"
                          spellcheck="false"
-                        id="terminalInput"
-                        class="placeholder"
-                        contenteditable="true"
-                        data-placeholder="type 'help' to show available commands"
+                         id="terminalInput"
+                         class="placeholder"
+                         contenteditable="true"
+                         data-placeholder="type 'help' to show available commands"
                     ></div>
                 </div>
             </div>
@@ -210,7 +174,7 @@
         const echoContainer = document.getElementById('echoArea');
 
         
-        const commands = ["help", "aboutme", "education", "experience", "publications"];
+        const commands = ["help", "aboutme", "education", "experience", "publications", "talks", "services"];
 
         
         setTimeout(() => { terminalDiv.focus(); }, 50);
@@ -319,6 +283,14 @@
                       <div>publications:</div>
                       <div>show my publications</div>
                     </div>
+                    <div class="help-grid-line">
+                      <div>talks:</div>
+                      <div>show my talks</div>
+                    </div>
+                    <div class="help-grid-line">
+                      <div>services:</div>
+                      <div>show my services</div>
+                    </div>
                 `;
                     break;
                 case "aboutme":
@@ -423,6 +395,29 @@
                     <div class="pub-venue">Machine Learning, 2024</div>
                 `;
                     break;
+                case "talks":
+                    outputHtml += `
+                    <div class="echo">[${escapeHTML(timestamp)}] <b>Talks</b></div>
+                    <div class="talk-grid-line">
+                      <div>UK AI Conference, Birmingham</div>
+                      <div>Nov 2024</div>
+                    </div>
+                    <div class="talk-grid-line">
+                      <div>European Conference on Machine Learning, Vilnius</div>
+                      <div>Sep 2024</div>
+                    </div>
+                    <div class="talk-grid-line">
+                      <div>GCRL workshop at NeurIPS, New Orleans</div>
+                      <div>Dec 2023</div>
+                    </div>
+                `;
+                    break;
+                case "services":
+                    outputHtml += `
+                    <div class="echo">[${escapeHTML(timestamp)}] <b>Services</b></div>
+                    <div class="line"><b>Reviewer</b>: ICLR 2025, TMLR 2024-2025.</div>
+                `;
+                    break;
                 default:
                     
                     if (cmd === "") {
@@ -432,7 +427,7 @@
                     `;
                     } else {
                         outputHtml += `
-                        <div class="echo">[${escapeHTML(timestamp)}] <b>cmd</b> </div>
+                        <div class="echo">[${escapeHTML(timestamp)}] <b>${cmd}</b> </div>
                         <div class="line">Command not found: ${escapeHTML(typed)}</div>
                     `;
                     }
@@ -504,6 +499,8 @@
         checkPlaceholder();
 
         
+        processCommand("services");
+        processCommand("talks");
         processCommand("publications");
         processCommand("education");
         processCommand("experience");

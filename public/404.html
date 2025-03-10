@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
-    <title>My New Hugo Site</title>
+    <title>Mianchu Wang</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="all,follow" />
@@ -27,14 +27,14 @@
         body{
             margin: 0 auto;
             font-size: 14px;
-            max-width: 800px;
+            max-width: 800px;  
+            font-family: monospace;
         }
 
          
         body.terminal {
             background-color: #fff !important;
             color: #000 !important;
-            font-family: monospace;
         }
         .logo.terminal-prompt::after {
              
@@ -77,7 +77,7 @@
 
          
         .line {
-            margin-left: 195px;
+            margin-left: 12rem;
             margin-bottom: 0.2em;
         }
 
@@ -88,54 +88,83 @@
         .heading {
             font-weight: bold;
         }
-        .edu-grid-line {
+        .edu-grid-line,
+        .exp-grid-line,
+        .aboutme-grid-line,
+        .help-grid-line {
             display: grid;
-            grid-template-columns: 210px 90px 1fr;  
             gap: 1rem;  
             margin-bottom: 0.2em;
-            margin-left: 195px;
+            margin-left: 12rem;
+        }
+        .edu-grid-line {
+            grid-template-columns: 210px 90px 1fr;  
         }
         .exp-grid-line {
             font-weight: bold;
-            display: grid;
-            grid-template-columns: 211px 80px 1fr;  
-            gap: 1rem;  
-            margin-bottom: 0.2em;
-            margin-left: 195px;
+            grid-template-columns: 211px 80px 1fr;
         }
         .exp-description {
-            margin-left: 195px;
+            margin-left: 12rem;
             margin-bottom: 1.0em;
         }
         .aboutme-grid-line {
-            display: grid;
-            grid-template-columns: 170px 400px 1fr;  
-            gap: 1rem;  
-            margin-bottom: 0.2em;
-            margin-left: 195px;
+            grid-template-columns: 170px 400px 1fr;
         }
         .help-grid-line {
-            display: grid;
-            grid-template-columns: 150px 400px 1fr;  
-            gap: 1rem;  
-            margin-bottom: 0.2em;
-            margin-left: 195px;
+            grid-template-columns: 150px 400px 1fr;
         }
-        .pub-title{
+        .pub-title {
             font-weight: bold;
-            margin-left: 195px;
+            margin-left: 12rem;
             margin-bottom: 0.2em;
         }
-        .pub-authors{
-            margin-left: 195px;
+        .pub-authors {
+            margin-left: 12rem;
             margin-bottom: 0.2em;
         }
-        .pub-venue{
+        .pub-venue {
             font-style: italic;
-            margin-left: 195px;
+            margin-left: 12rem;
             margin-bottom: 1.0em;
         }
 
+         
+         
+        @media (max-width: 768px) {
+            body {
+                max-width: 100%;
+                margin: 0 1rem;  
+                font-size: 16px;  
+            }
+
+             
+            .line,
+            .edu-grid-line,
+            .exp-grid-line,
+            .exp-description,
+            .aboutme-grid-line,
+            .help-grid-line,
+            .pub-title,
+            .pub-authors,
+            .pub-venue {
+                margin-left: 0 !important;
+            }
+
+             
+            .edu-grid-line,
+            .exp-grid-line,
+            .aboutme-grid-line,
+            .help-grid-line {
+                grid-template-columns: 1fr;
+            }
+
+             
+            #terminalInput {
+                min-width: 0;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -153,7 +182,7 @@
                 
                 
                 
-                <a href='http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html'>404.html</a>/
+                <a href='http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html/http://localhost:1313/404.html'>404.html</a>/
                 
                 
                 
@@ -185,10 +214,20 @@
 <h1>Page not found</h1>
 <p><a href="http://localhost:1313/">Return to the home page</a>.</p>
 
-    <div class="footer">
+    <style>
+    .last-updated {
+        float: right;
+    }
+</style>
+
+
+<div class="footer">
     Powered by <a href="https://gohugo.io/">Hugo</a>.
-    Last updated on 10 March 2025.
+    <span class="last-updated">Last updated on 10 March 2025.</span>
+    <br>
+    <br>
 </div>
+
 
 </div>
 
@@ -505,7 +544,7 @@
                 
                 total = total.replace(leftover, '');
             }
-            return total; 
+            return total;
         }
 
         function placeCaretAtEnd(el) {

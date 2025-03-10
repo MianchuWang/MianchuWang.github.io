@@ -26,14 +26,14 @@
         body{
             margin: 0 auto;
             font-size: 14px;
-            max-width: 800px;
+            max-width: 800px; /* Restricts width on larger screens */
+            font-family: monospace;
         }
 
         /* 1) White background, black text */
         body.terminal {
             background-color: #fff !important;
             color: #000 !important;
-            font-family: monospace;
         }
         .logo.terminal-prompt::after {
             /* Remove the theme's blinking pseudo-cursor */
@@ -77,9 +77,11 @@
             color: #aaa;
         }
 
-        /* 4) Echoed lines appear at top (reverse order) */
+        /* 4) Echoed lines appear at top (reverse order).
+           Use relative spacing so it’s simpler to override with media queries.
+        */
         .line {
-            margin-left: 195px;
+            margin-left: 12rem;
             margin-bottom: 0.2em;
         }
 
@@ -90,54 +92,83 @@
         .heading {
             font-weight: bold;
         }
-        .edu-grid-line {
+        .edu-grid-line,
+        .exp-grid-line,
+        .aboutme-grid-line,
+        .help-grid-line {
             display: grid;
-            grid-template-columns: 210px 90px 1fr; /* adjust as needed */
             gap: 1rem; /* spacing between columns */
             margin-bottom: 0.2em;
-            margin-left: 195px;
+            margin-left: 12rem;
+        }
+        .edu-grid-line {
+            grid-template-columns: 210px 90px 1fr; /* adjust as needed */
         }
         .exp-grid-line {
             font-weight: bold;
-            display: grid;
-            grid-template-columns: 211px 80px 1fr; /* adjust as needed */
-            gap: 1rem; /* spacing between columns */
-            margin-bottom: 0.2em;
-            margin-left: 195px;
+            grid-template-columns: 211px 80px 1fr;
         }
         .exp-description {
-            margin-left: 195px;
+            margin-left: 12rem;
             margin-bottom: 1.0em;
         }
         .aboutme-grid-line {
-            display: grid;
-            grid-template-columns: 170px 400px 1fr; /* adjust as needed */
-            gap: 1rem; /* spacing between columns */
-            margin-bottom: 0.2em;
-            margin-left: 195px;
+            grid-template-columns: 170px 400px 1fr;
         }
         .help-grid-line {
-            display: grid;
-            grid-template-columns: 150px 400px 1fr; /* adjust as needed */
-            gap: 1rem; /* spacing between columns */
-            margin-bottom: 0.2em;
-            margin-left: 195px;
+            grid-template-columns: 150px 400px 1fr;
         }
-        .pub-title{
+        .pub-title {
             font-weight: bold;
-            margin-left: 195px;
+            margin-left: 12rem;
             margin-bottom: 0.2em;
         }
-        .pub-authors{
-            margin-left: 195px;
+        .pub-authors {
+            margin-left: 12rem;
             margin-bottom: 0.2em;
         }
-        .pub-venue{
+        .pub-venue {
             font-style: italic;
-            margin-left: 195px;
+            margin-left: 12rem;
             margin-bottom: 1.0em;
         }
 
+        /* ----- MOBILE FRIENDLINESS ----- */
+        /* Adjust the breakpoint as needed */
+        @media (max-width: 768px) {
+            body {
+                max-width: 100%;
+                margin: 0 1rem; /* small side margins on mobile */
+                font-size: 16px; /* slightly larger on mobile */
+            }
+
+            /* Remove large left margin for lines on mobile */
+            .line,
+            .edu-grid-line,
+            .exp-grid-line,
+            .exp-description,
+            .aboutme-grid-line,
+            .help-grid-line,
+            .pub-title,
+            .pub-authors,
+            .pub-venue {
+                margin-left: 0 !important;
+            }
+
+            /* Stack columns for smaller screens (one column, or adjust as needed) */
+            .edu-grid-line,
+            .exp-grid-line,
+            .aboutme-grid-line,
+            .help-grid-line {
+                grid-template-columns: 1fr;
+            }
+
+            /* Adjust minimum width for the input so it doesn't force horizontal scrolling */
+            #terminalInput {
+                min-width: 0;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -208,7 +239,7 @@
         // 1) CHECKING + REMOVING PLACEHOLDER
 
         function checkPlaceholder() {
-            // CHANGED: only re-add the placeholder if the content is truly empty
+            // Only re-add the placeholder if the content is truly empty
             if (!terminalDiv.textContent) {
                 terminalDiv.classList.add('placeholder');
                 terminalDiv.textContent = terminalDiv.getAttribute('data-placeholder');
@@ -219,7 +250,7 @@
             if (terminalDiv.classList.contains('placeholder')) {
                 terminalDiv.classList.remove('placeholder');
                 const placeholderText = terminalDiv.getAttribute('data-placeholder');
-                // Remove that placeholder from the textContent, so spaces remain
+                // Remove that placeholder from the textContent
                 let current = terminalDiv.textContent;
                 current = current.replace(placeholderText, "");
                 terminalDiv.textContent = current;
@@ -492,7 +523,7 @@
 
         // 6) HELPER FUNCTIONS
 
-        // CHANGED: We do NOT trim here, so user spaces remain visible
+        // We do NOT trim here, so user spaces remain visible
         function getPureTyped() {
             if (terminalDiv.classList.contains('placeholder')) return "";
             const leftoverSpan = terminalDiv.querySelector('.leftover');
@@ -502,7 +533,7 @@
                 // Remove leftover from the visible text if it exists
                 total = total.replace(leftover, '');
             }
-            return total; // no .trim(), preserving leading/trailing spaces
+            return total;
         }
 
         function placeCaretAtEnd(el) {

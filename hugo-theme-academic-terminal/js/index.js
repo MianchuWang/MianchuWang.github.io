@@ -32,7 +32,7 @@ $(document).ready(function () {
         localStorage.setItem("infopub", `${$("#info-pub").html()}`);
     }
     if (typeof $("#info-talk").html() !== "undefined") {
-        localStorage.setItem("infotalk", `${$("#info-pub").html()}`);
+        localStorage.setItem("infotalk", `${$("#info-talk").html()}`);
     }
     if (typeof $("#info-services").html() !== "undefined") {
         localStorage.setItem("infoservices", `${$("#info-services").html()}`);

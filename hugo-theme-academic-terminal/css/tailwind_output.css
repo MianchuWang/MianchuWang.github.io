@@ -795,6 +795,18 @@ video {
     float: right;
 }
 
+a {
+    color: blue; /* Set the hyperlink text color to blue */
+    text-decoration: none; /* Optional: removes the underline */
+}
+
+a:hover {
+    background-color: blue; /* Set the background to blue when hovered */
+    color: white; /* Optional: Change text color for better contrast */
+}
+
+
+
 @media (min-width: 768px) {
     .md\:visible {
         visibility: visible;

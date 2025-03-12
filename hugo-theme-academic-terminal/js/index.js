@@ -3,8 +3,8 @@ const commands = [
     "aboutme",
     "experiences",
     "education",
-    "talks",
     "publications",
+    "talks",
     "services"
 ];
 
@@ -13,9 +13,7 @@ $(document).ready(function () {
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
             navigator.userAgent
         )
-    ) {
-        $("#user-command-suggestion")[0].innerHTML = "Hello there!";
-    }
+    )
     if (typeof $("#info-help").html() !== "undefined") {
         localStorage.setItem("infohelp", `${$("#info-help").html()}`);
     }
@@ -35,7 +33,7 @@ $(document).ready(function () {
         localStorage.setItem("infotalk", `${$("#info-talk").html()}`);
     }
     if (typeof $("#info-services").html() !== "undefined") {
-        localStorage.setItem("infoservices", `${$("#info-services").html()}`);
+        localStorage.setItem("infoservice", `${$("#info-services").html()}`);
     }
 });
 
@@ -69,6 +67,7 @@ function runCommand() {
     if (command === "help") {
         output = document.createElement("div");
         output.classList.add("flex");
+        output.classList.add("mt-1");
         const helpDate = document.createElement("div");
         helpDate.innerHTML = timestamp;
         helpDate.classList.add("min-w-[161px]");
@@ -114,6 +113,7 @@ function runCommand() {
     } else if (command === "aboutme") {
         output = document.createElement("div");
         output.classList.add("flex");
+        output.classList.add("mt-1");
         const aboutmeDate = document.createElement("div");
         aboutmeDate.innerHTML = timestamp;
         aboutmeDate.classList.add("min-w-[161px]");
@@ -126,6 +126,7 @@ function runCommand() {
     } else if (command === "experiences") {
         output = document.createElement("div");
         output.classList.add("flex");
+        output.classList.add("mt-1");
         const expDate = document.createElement("div");
         expDate.innerHTML = timestamp;
         expDate.classList.add("min-w-[161px]");
@@ -138,6 +139,7 @@ function runCommand() {
     } else if (command === "education") {
         output = document.createElement("div");
         output.classList.add("flex");
+        output.classList.add("mt-1");
         const educationDate = document.createElement("div");
         educationDate.innerHTML = timestamp;
         educationDate.classList.add("min-w-[161px]");
@@ -150,6 +152,7 @@ function runCommand() {
     } else if (command === "publications") {
         output = document.createElement("div");
         output.classList.add("flex");
+        output.classList.add("mt-1");
         const publicationDate = document.createElement("div");
         publicationDate.innerHTML = timestamp;
         publicationDate.classList.add("min-w-[161px]");
@@ -162,6 +165,7 @@ function runCommand() {
     } else if (command === "talks") {
         output = document.createElement("div");
         output.classList.add("flex");
+        output.classList.add("mt-1");
         const talkDate = document.createElement("div");
         talkDate.innerHTML = timestamp;
         talkDate.classList.add("min-w-[161px]");
@@ -174,6 +178,7 @@ function runCommand() {
     } else if (command === "services") {
         output = document.createElement("div");
         output.classList.add("flex");
+        output.classList.add("mt-1");
         const servicesDate = document.createElement("div");
         servicesDate.innerHTML = timestamp;
         servicesDate.classList.add("min-w-[161px]");
@@ -184,8 +189,17 @@ function runCommand() {
         output.appendChild(servicesInfo);
         $("#command-outputs")[0].prepend(output);
     } else {
-        output = document.createElement("span");
-        output.innerHTML = timestamp + "Command not found.";
+        output = document.createElement("div");
+        output.classList.add("flex");
+        output.classList.add("mt-1");
+        const invalidDate = document.createElement("div");
+        invalidDate.innerHTML = timestamp;
+        invalidDate.classList.add("min-w-[161px]");
+        output.appendChild(invalidDate);
+        const invalidInfo = document.createElement("div");
+        invalidInfo.innerHTML = "Command not found.";
+        invalidInfo.classList.add("grow");
+        output.appendChild(invalidInfo);
         $("#command-outputs")[0].prepend(output);
     }
 
@@ -257,5 +271,5 @@ if ($("#date-edu")[0]) {
 
     dateDiv = document.createElement("span");
     dateDiv.innerHTML = timestamp;
-    $("#date-services")[0].prepend(dateDiv);
+    $("#date-service")[0].prepend(dateDiv);
 }

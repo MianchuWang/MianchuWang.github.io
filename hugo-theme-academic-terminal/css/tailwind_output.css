@@ -548,15 +548,6 @@ video {
     visibility: hidden;
 }
 
-.col-span-2 {
-    grid-column: span 2 / span 2;
-}
-
-
-.col-span-4 {
-    grid-column: span 4 / span 4;
-}
-
 .mx-auto {
     margin-left: auto;
     margin-right: auto;
@@ -602,6 +593,10 @@ video {
 
 .mt-5 {
     margin-top: 1.25rem;
+}
+
+.mt-1 {
+    margin-top: 1rem;
 }
 
 .block {
@@ -690,16 +685,28 @@ video {
     user-select: none;
 }
 
-.grid-cols-5 {
-    grid-template-columns: repeat(5, 1fr);
+.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .grid-cols-4 {
     grid-template-columns: repeat(4, 1fr);
 }
 
-.grid-cols-2 {
-    grid-template-columns: repeat(2, 1fr);
+.grid-cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.col-span-2 {
+    grid-column: span 2 / span 2;
+}
+
+.col-span-3 {
+    grid-column: span 3 / span 3;
+}
+
+.col-span-4 {
+    grid-column: span 4 / span 4;
 }
 
 .flex-col {

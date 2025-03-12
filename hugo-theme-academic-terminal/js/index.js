@@ -29,11 +29,11 @@ $(document).ready(function () {
     if (typeof $("#info-pub").html() !== "undefined") {
         localStorage.setItem("infopub", `${$("#info-pub").html()}`);
     }
-    if (typeof $("#info-talk").html() !== "undefined") {
-        localStorage.setItem("infotalk", `${$("#info-talk").html()}`);
+    if (typeof $("#info-talks").html() !== "undefined") {
+        localStorage.setItem("infotalks", `${$("#info-talks").html()}`);
     }
     if (typeof $("#info-services").html() !== "undefined") {
-        localStorage.setItem("infoservice", `${$("#info-services").html()}`);
+        localStorage.setItem("infoservices", `${$("#info-services").html()}`);
     }
 });
 
@@ -171,7 +171,7 @@ function runCommand() {
         talkDate.classList.add("min-w-[161px]");
         output.appendChild(talkDate);
         const talkInfo = document.createElement("div");
-        talkInfo.innerHTML = localStorage.infotalk;
+        talkInfo.innerHTML = localStorage.infotalks;
         talkInfo.classList.add("grow");
         output.appendChild(talkInfo);
         $("#command-outputs")[0].prepend(output);
@@ -267,9 +267,9 @@ if ($("#date-edu")[0]) {
 
     dateDiv = document.createElement("span");
     dateDiv.innerHTML = timestamp;
-    $("#date-talk")[0].prepend(dateDiv);
+    $("#date-talks")[0].prepend(dateDiv);
 
     dateDiv = document.createElement("span");
     dateDiv.innerHTML = timestamp;
-    $("#date-service")[0].prepend(dateDiv);
+    $("#date-services")[0].prepend(dateDiv);
 }

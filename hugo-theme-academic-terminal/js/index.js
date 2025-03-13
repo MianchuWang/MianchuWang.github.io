@@ -85,7 +85,7 @@ function runCommand() {
                         </div>
                         <div class="flex flex-col md:flex-row">
                             <div class="min-w-[150px]">experiences:</div>
-                            <div>Show my experience</div>
+                            <div>Show my experiences</div>
                         </div>
                         <div class="flex flex-col md:flex-row">
                             <div class="min-w-[150px]">education:</div>

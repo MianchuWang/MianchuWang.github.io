@@ -806,6 +806,10 @@ video {
     float: right;
 }
 
+.align-right{
+    text-align: right;
+}
+
 a {
     color: blue; /* Set the hyperlink text color to blue */
     text-decoration: none; /* Optional: removes the underline */
